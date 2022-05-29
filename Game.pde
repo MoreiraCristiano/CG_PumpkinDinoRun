@@ -90,8 +90,7 @@ void draw() {
   if (startGame) {
     sound_mainMenu.mute();
     gameScreens.startGame();
-    sound_game.play();
-    sound_game.setGain(-30);
+    playingSound();
   }
 }
 
@@ -108,6 +107,11 @@ void endGame() {
     startGame = false;
     showMenu = true;
   }
+}
+
+void playingSound() {
+  sound_game.play();
+  sound_game.setGain(-30);
 }
 
 void mainMenuSound() {
