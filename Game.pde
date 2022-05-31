@@ -5,6 +5,7 @@ Minim sound_manager;
 AudioPlayer sound_dead;
 AudioPlayer sound_game;
 AudioPlayer sound_mainMenu;
+AudioPlayer sound_jump;
 Screens gameScreens = new Screens();
 boolean showMenu = true;
 boolean startGame = false;
@@ -63,6 +64,7 @@ void setup() {
   sound_game = sound_manager.loadFile("./Assets/sounds/background_game_sound2.mp3");
   sound_dead = sound_manager.loadFile("./Assets/sounds/dead2.mp3");
   sound_mainMenu = sound_manager.loadFile("./Assets/sounds/sound_menu.mp3");
+  sound_jump = sound_manager.loadFile("./Assets/sounds/jump_sound.mp3");
 
   // Movies
   //video = new Movie(this, "movie.mp4");
@@ -99,12 +101,12 @@ void endGame() {
   sound_game.mute();
   sound_game.rewind();
   showMenu = true;
+  startGame = false;
   delay(1500);
 
   if (showMenu) {
     stroke(0);
     mainMenuSound();
-    startGame = false;
     showMenu = true;
   }
 }
@@ -124,6 +126,9 @@ void deadSound() {
   sound_dead.setGain(-30);
 }
 
+void jumpSound() {
+  sound_jump.play();
+}
 
 // CONTROLS
 void mouseReleased() {

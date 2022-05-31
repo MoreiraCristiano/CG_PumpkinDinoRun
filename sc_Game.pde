@@ -82,7 +82,9 @@ void keyPressed() {
   if (key == CODED) {
     if (keyCode  == UP) {
       vertical = -15;
+      jumpSound();
     }
+    sound_jump.rewind();
   }
 }
 
