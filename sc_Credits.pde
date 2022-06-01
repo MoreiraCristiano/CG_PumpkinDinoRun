@@ -2,8 +2,17 @@ class ScCredits {
   ScCredits() {
   }
 
-  String creditsHeader = "Computação Gráfica e" + "\n" + "processamento de imagens" ;
-  String creators ="Anne Frank M. Reis" + "\n" + "Cristiano M. do Amaral" + "\n" + "Lucas Sarneli Biazetto"  + "\n" + "Vivaldo Roni Stein Hermes";
+  String creditsHeader = "Computação Gráfica e" +
+                         "\n" +
+                         "processamento de imagens" ;
+                         
+  String creators = "Anne Frank M. Reis" +
+                    "\n" + 
+                    "Cristiano M. do Amaral" + 
+                    "\n" + 
+                    "Lucas Sarneli Biazetto" +
+                    "\n" +
+                    "Vivaldo Roni Stein Hermes";
 
   void drawCredits() {
     background(backgroundMainMenu);

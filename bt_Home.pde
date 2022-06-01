@@ -3,7 +3,6 @@ class BtHome extends Button {
     super(x, y, _width, _height, _text);
   }
  
- // Escrever outro estilo?
  @Override
   void drawButton(String _text) {
     if (isMouseInside()) {

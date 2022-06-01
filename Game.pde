@@ -1,10 +1,10 @@
 /*
-  * Projeto    : Pumpkin Dino Run.
-  * Disciplina : Computação Gráfica 7 semestre - Engenharia de computação - USF
-  * Criadores  : Anne Frank Marques Reis
-                 Cristiano Moreira do Amaral
-                 Lucas Sarnelli Biazetto
-                 Vivaldo Roni Stein Hermes
+  * Projeto          : Pumpkin Dino Run.
+  * Disciplina       : Computação Gráfica 7 semestre - Engenharia de computação - USF
+  * Desenvolvedores  : Anne Frank Marques Reis
+                       Cristiano Moreira do Amaral
+                       Lucas Sarnelli Biazetto
+                       Vivaldo Roni Stein Hermes
 */
 
 import ddf.minim.*;
