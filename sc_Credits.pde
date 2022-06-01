@@ -6,7 +6,7 @@ class ScCredits {
   String creators ="Anne Frank M. Reis" + "\n" + "Cristiano M. do Amaral" + "\n" + "Lucas Sarneli Biazetto"  + "\n" + "Vivaldo Roni Stein Hermes";
 
   void drawCredits() {
-    background(background_mainMenu);
+    background(backgroundMainMenu);
     drawBoard();
     textSize(30);
     fill(1, 1, 1);

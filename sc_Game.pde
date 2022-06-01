@@ -4,71 +4,70 @@ class ScGame {
 
   void drawGame() {
     imageMode(CORNER);
-    image(background, x, 0);
-    image(background, x + background.width, 0);
+    image(backgroundGame, x, 0);
+    image(backgroundGame, x + backgroundGame.width, 0);
     x -= xSpeed;
-    vertical += 1;
-    y += vertical;
+    grav += 1;
+    y += grav;
     if (y >= yLimit) y = yLimit;
     if (y < 255) y = 383;
-    if (x == -background.width) x = 0;
+    if (x == -backgroundGame.width) x = 0;
+    image(obstacle, rollx, 400);
 
-    for (int i = 0; i < 2; i++) {
-      image(obstacle2, wallx[i], 400);
-
-      // colisao obstaculo em dino
-      if (wallx[i] < 90) {
-        wallx[i] = width;
-      }
-
-      Ball[] balls =  {
-        new Ball(230, y + 30, 30),
-        new Ball(wallx[i] + 25, 415, 30)
-      };
-
-      for (Ball b : balls) {
-        b.display();
-        b.checkBoundaryCollision();
-      }
-      balls[0].checkCollision(balls[1]);
-
-      // Score
-      if (wallx[i] < obstacleColisionPixel) {
-        score++;
-        scoreCounter = score / 60;
-      }
-
-      // Velocidade de movimento do obstaculo
-      wallx[i] -= wallxSpeedy;
+    // Obstacle collides with dino
+    if (rollx < 90) {
+      rollx = width;
     }
+
+    // Bounding box of collision
+    Ball[] balls =  {
+      new Ball(230, y + 30, 30),
+      new Ball(rollx + 25, 430, 30)
+    };
+
+    for (Ball b : balls) {
+      b.display();
+      b.checkBoundaryCollision();
+    }
+    balls[0].checkCollision(balls[1]);
+
+    // Score
+    if (rollx < obstacleColisionPixel) {
+      score++;
+      scoreCounter = score / 30;
+    }
+
+    // Obstacle speedy
+    rollx -= wallxSpeedy;
 
     // Score show
     fill(255);
     textSize(25);
     text("Score: " + scoreCounter, 55, 10);
 
-    // Dificuldade média
+    // Mid level
     if (scoreCounter > 5) {
       wallxSpeedy = 9;
       wallxSpeedy = 10;
     }
 
-    // Dificuldade dificil
+    // Hard level
     if (scoreCounter > 10) {
       wallxSpeedy = 14;
       wallxSpeedy = 15;
     }
 
+    // Change sprites
     if ((millis() - time) > 115) {
       time = millis();
-      if (sp == true) {
-        sp = false;
+      if (showSprite == true) {
+        showSprite = false;
       } else {
-        sp = true;
+        showSprite = true;
       }
     }
 
-    if (sp == true) {
+    if (showSprite == true) {
       image(jackRun, width / 3, y);
       image(spriteDinoRun, 0, 270);
     } else {
@@ -81,13 +80,9 @@ class ScGame {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode  == UP) {
-      vertical = -15;
+      grav = -15;
       jumpSound();
     }
     sound_jump.rewind();
   }
 }
-
-//void mouseClicked() {
-//  println(mouseX + "," + mouseY);
-//}

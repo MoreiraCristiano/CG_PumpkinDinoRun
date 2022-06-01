@@ -1,6 +1,15 @@
-import ddf.minim.*;
-//import processing.video.*;
+/*
+  * Projeto    : Pumpkin Dino Run.
+  * Disciplina : Computação Gráfica 7 semestre - Engenharia de computação - USF
+  * Criadores  : Anne Frank Marques Reis
+                 Cristiano Moreira do Amaral
+                 Lucas Sarnelli Biazetto
+                 Vivaldo Roni Stein Hermes
+*/
 
+import ddf.minim.*;
+
+// All global variables are declared here
 Minim sound_manager;
 AudioPlayer sound_dead;
 AudioPlayer sound_game;
@@ -11,69 +20,52 @@ boolean showMenu = true;
 boolean startGame = false;
 boolean showRules = false;
 boolean showCredits = false;
-PImage[] obstacles = new PImage[2];
-PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, jackRun, jackRun2, jackDead, obstacle2;
-PImage background;
-PImage background_mainMenu, background_rules, background_credits;
-int wallx[] = new int[2];
-int wally[] =new int[2];
+boolean showSprite = false;
+PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, jackRun, jackRun2, obstacle;
+PImage backgroundMainMenu, backgroundRules, backgroundCredits, backgroundGame;
+int rollx;
 int wallxSpeedy = 6;
-int vertical = 1;
+int grav = 1;
 int x = -200;
-int xSpeed = 5;
 int y = 370;
+int xSpeed = 5;
 int yLimit = y;
 int score = 0;
 int scoreCounter = 0;
 int obstacleColisionPixel = 265;
-boolean sp = false;
 int time;
-//Movie video;
 
 void setup() {
+  // Screen size
   size(600, 600);
 
-  // Background
-  background = loadImage("./Assets/bg-game.png");
-  background_mainMenu = loadImage("./Assets/BG_Inicio.jpg");
+  // Background of main menu and background game
+  backgroundGame = loadImage("./Assets/backgrounds/bg-game.jpg");
+  backgroundMainMenu = loadImage("./Assets/backgrounds/BG_Inicio.jpg");
 
-  // Obstacles Sprites
-  obstacle2 = loadImage("./Assets/obstacles/obstacle2.png");
+  // Obstacles Sprites and resize
+  obstacle = loadImage("./Assets/obstacles/obstacle1.png");
+  obstacle.resize(50, 50);
 
-  obstacle2.resize(50, 50);
-  //obstacles[1] = obstacle2;
-
-  // Jack sprites
+  // Jack sprites and resize
   jackRun = loadImage("./Assets/sprite_jack/jack1.png");
   jackRun2 = loadImage("./Assets/sprite_jack/jack3.png");
-  //jackDead = loadImage("./Assets/sprite_jack/jack3dead.png");
-
   jackRun.resize(75, 85);
   jackRun2.resize(75, 85);
-  //jackDead.resize(75, 85);
 
-  // Dino Sprite
+  // Dino Sprite and resize
   spriteDinoRun = loadImage("./Assets/sprite_dino/dino_run.png");
   spriteDinoRun2 = loadImage("./Assets/sprite_dino/dino_run2.png");
-
   spriteDinoRun.resize(200, 200);
   spriteDinoRun2.resize(200, 200);
 
-  // Sounds
+  // Sounds and sound manager
   sound_manager = new Minim(this);
   sound_game = sound_manager.loadFile("./Assets/sounds/background_game_sound2.mp3");
   sound_dead = sound_manager.loadFile("./Assets/sounds/dead2.mp3");
   sound_mainMenu = sound_manager.loadFile("./Assets/sounds/sound_menu.mp3");
   sound_jump = sound_manager.loadFile("./Assets/sounds/jump_sound.mp3");
-
-  // Movies
-  //video = new Movie(this, "movie.mp4");
-  //video.loop();
 }
-
-//void movieEvent(Movie video) {
-//  video.read();
-//}
 
 void draw() {
   if (showMenu) {
@@ -130,7 +122,7 @@ void jumpSound() {
   sound_jump.play();
 }
 
-// CONTROLS
+// Main menu buttons
 void mouseReleased() {
   // Bt start
   if (mouseX >= 220 && mouseX <= 376 && mouseY >= 300 && mouseY <= 355) {

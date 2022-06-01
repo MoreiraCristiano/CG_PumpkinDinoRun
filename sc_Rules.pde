@@ -3,12 +3,16 @@ class ScRules {
   }
 
   String headerRules = "Regras do game \n";
-  String rules = "Você acidentalmente quebrou um dos ovos" + "\n" + " da ninhada da mamãe dinossauro e agora você \n deve tentar sobreviver!" +
-    "\n" + "Fuja da mamãe dinossauro e desvie dos obstáculos!" + "\n\n\n" + "Utilize a seta para cima do teclado \n para pular os obstáculos.";
+  String rules = "Você acidentalmente quebrou um dos ovos" + 
+                 "\n" + 
+                 " da ninhada da mamãe dinossauro e agora você \n deve tentar sobreviver!" +
+                 "\n" +             
+                 "Fuja da mamãe dinossauro e desvie dos obstáculos!" + 
+                 "\n\n\n" + 
+                 "Utilize a seta para cima do teclado \n para pular os obstáculos.";
 
   void drawRules() {
-    
-    background(background_mainMenu);
+    background(backgroundMainMenu);
     drawBoard();
     textSize(30);
     fill(1, 1, 1);

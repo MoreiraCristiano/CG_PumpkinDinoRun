@@ -4,7 +4,7 @@ class ScMainMenu {
   BtCredits creditsButton = new BtCredits(300, 410, 150, 50, "Credits");
   
   void drawMenu() {
-    background(background_mainMenu);
+    background(backgroundMainMenu);
     startButton.drawButton("Start");
     rulesButton.drawButton("Rules");
     creditsButton.drawButton("Credits");

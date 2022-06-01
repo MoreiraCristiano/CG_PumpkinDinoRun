@@ -125,14 +125,13 @@ class Ball {
       other.velocity.x = cosine * vFinal[1].x - sine * vFinal[1].y;
       other.velocity.y = cosine * vFinal[1].y + sine * vFinal[1].x;
 
-      
       endGame();
     }
   }
 
   void display() {
     noStroke();
-    fill(204, 0);
+    fill(0, 0);
     ellipse(position.x, position.y, radius*2, radius*2);
   }
 }
