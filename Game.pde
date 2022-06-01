@@ -1,11 +1,11 @@
 /*
   * Projeto          : Pumpkin Dino Run.
-  * Disciplina       : Computação Gráfica 7 semestre - Engenharia de computação - USF
-  * Desenvolvedores  : Anne Frank Marques Reis
-                       Cristiano Moreira do Amaral
-                       Lucas Sarnelli Biazetto
-                       Vivaldo Roni Stein Hermes
-*/
+ * Disciplina       : Computação Gráfica 7 semestre - Engenharia de computação - USF
+ * Desenvolvedores  : Anne Frank Marques Reis
+ Cristiano Moreira do Amaral
+ Lucas Sarnelli Biazetto
+ Vivaldo Roni Stein Hermes
+ */
 
 import ddf.minim.*;
 
@@ -21,7 +21,7 @@ boolean startGame = false;
 boolean showRules = false;
 boolean showCredits = false;
 boolean showSprite = false;
-PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, jackRun, jackRun2, obstacle;
+PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, jackRun, jackRun2, zombie, zombie2,obstacle, spriteCharacter, spriteCharacter2;
 PImage backgroundMainMenu, backgroundRules, backgroundCredits, backgroundGame;
 int rollx;
 int wallxSpeedy = 6;
@@ -47,11 +47,11 @@ void setup() {
   obstacle = loadImage("./Assets/obstacles/obstacle1.png");
   obstacle.resize(50, 50);
 
-  // Jack sprites and resize
-  jackRun = loadImage("./Assets/sprite_jack/jack1.png");
-  jackRun2 = loadImage("./Assets/sprite_jack/jack3.png");
-  jackRun.resize(75, 85);
-  jackRun2.resize(75, 85);
+  // Main character sprites and resize
+  spriteCharacter = loadImage("./Assets/sprite_jack/jack1.png");
+  spriteCharacter2 = loadImage("./Assets/sprite_jack/jack3.png");
+  spriteCharacter.resize(75, 85);
+  spriteCharacter2.resize(75, 85);
 
   // Dino Sprite and resize
   spriteDinoRun = loadImage("./Assets/sprite_dino/dino_run.png");
@@ -120,6 +120,7 @@ void deadSound() {
 
 void jumpSound() {
   sound_jump.play();
+  sound_jump.setGain(-30);
 }
 
 // Main menu buttons

@@ -68,10 +68,10 @@ class ScGame {
     }
 
     if (showSprite == true) {
-      image(jackRun, width / 3, y);
+      image(spriteCharacter, width / 3, y);
       image(spriteDinoRun, 0, 270);
     } else {
-      image(jackRun2, width / 3, y);
+      image(spriteCharacter2, width / 3, y);
       image(spriteDinoRun2, 0, 270);
     }
   }
@@ -84,5 +84,21 @@ void keyPressed() {
       jumpSound();
     }
     sound_jump.rewind();
+  }
+}
+
+void keyReleased() {
+  if (keyCode == LEFT) {
+    spriteCharacter = loadImage("./Assets/sprite_jack/jack1.png");
+    spriteCharacter2 = loadImage("./Assets/sprite_jack/jack3.png");
+    spriteCharacter.resize(75, 85);
+    spriteCharacter2.resize(75, 85);
+  }
+
+  if (keyCode == RIGHT) {
+    spriteCharacter = loadImage("./Assets/sprite_zombie/zombie1.png");
+    spriteCharacter2 = loadImage("./Assets/sprite_zombie/zombie2.png");
+    spriteCharacter.resize(75, 85);
+    spriteCharacter2.resize(75, 85);
   }
 }
