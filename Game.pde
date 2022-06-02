@@ -1,10 +1,10 @@
 /*
   * Projeto          : Pumpkin Dino Run.
- * Disciplina       : Computação Gráfica 7 semestre - Engenharia de computação - USF
- * Desenvolvedores  : Anne Frank Marques Reis
- Cristiano Moreira do Amaral
- Lucas Sarnelli Biazetto
- Vivaldo Roni Stein Hermes
+  * Disciplina       : Computação Gráfica 7 semestre - Engenharia de computação - USF
+  * Desenvolvedores  : Anne Frank Marques Reis
+                      Cristiano Moreira do Amaral
+                      Lucas Sarnelli Biazetto
+                      Vivaldo Roni Stein Hermes
  */
 
 import ddf.minim.*;
@@ -21,7 +21,7 @@ boolean startGame = false;
 boolean showRules = false;
 boolean showCredits = false;
 boolean showSprite = false;
-PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, jackRun, jackRun2, zombie, zombie2,obstacle, spriteCharacter, spriteCharacter2;
+PImage spriteDinoRun, spriteDinoStop, spriteDinoDead, spriteDinoRun2, obstacle, spriteCharacter, spriteCharacter2;
 PImage backgroundMainMenu, backgroundRules, backgroundCredits, backgroundGame;
 int rollx;
 int wallxSpeedy = 6;

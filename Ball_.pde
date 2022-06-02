@@ -1,7 +1,6 @@
 class Ball {
   PVector position;
   PVector velocity;
-
   float radius, m;
 
   Ball(float x, float y, float r_) {
